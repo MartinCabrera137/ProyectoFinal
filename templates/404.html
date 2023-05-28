@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Error 404</title>
+	<style>
+	    *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333333;
+        }
+
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container h2
+        {   
+            font-size: 2.8em;
+            line-height: 2em;
+            color: #fff;
+            filter: drop-shadow(1px 1px 8px #fff);
+        }
+
+        .container p
+        {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .container .btn
+        {
+            width: 170px;
+            height: 50px;
+            appearance: none;
+            outline: none;
+            border: none;
+            background-color: #1cb5f0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/img/error.gif" alt="">
+        <h2>Hmmm...</h2>
+        <p>Pareces algo perdido...</p>
+        <p>¿Te ayudo a regresar?</p>
+        <a href="/inicio">
+            <button type="button" class="btn">Haz clic aqui!!</button>
+        </a>
+    </div> 
+</body>
+</html>

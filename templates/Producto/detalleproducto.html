@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/stylelogin.css">
+    <title>DetallesPerfumes</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{url_for('inicio')}}">Inicio</a>
+        <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+        <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+        <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+        <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+        <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+        <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
+      </div>
+    <center>
+    <div class="body">
+        <h1>Ver imagen</h1>
+        <div>
+            <a href="{{url_for('appproducto.getProducto')}}">
+                <button type="button" class="btn">Regresar</button>
+            </a>
+        </br>
+        </div>
+
+        <div>
+            <h3>ID del Producto: {{producto.idProducto}}</h3></br>
+            <h3>Nombre del producto: {{producto.nombreProducto}}</h3></br>
+            <h3>Descripcion del Producto: {{producto.desProducto}}</h3></br></br>
+            <h3>Imagen del producto:</h3> 
+            <img src="data:image/jpg;base64,{{imagen}}" alt="Imagen" width="300">
+        </div>
+    </div>
+    </center>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styleindex.css">
+    <title>Proveedores</title>
+</head>
+<body>
+  <center>
+    <div class="topnav">
+        <a href="{{url_for('inicio')}}">Inicio</a>
+        <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+        <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+        <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+        <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+        <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+        <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
+    </div>
+    <div class="body">
+
+        <h1>Listados de Proveedores registrados</h1>
+        <div>
+            <a href="{{ url_for('appproveedor.registropro') }}">
+                <button type="button" class="btn">Agregar</button>
+            </a>
+        </br>
+        </div>
+        <div>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proveedor in proveedores %}
+                    <tr>
+                        <td>{{proveedor.idProveedor}}</td>
+                        <td>{{proveedor.nombreProveedor}}</td>
+                        <td>{{proveedor.direccion}}</td>
+                        <td><a href="proveedores/editar//{{proveedor.idProveedor}}">Editar</a></td>
+                        <td><a href="proveedores/eliminar//{{proveedor.idProveedor}}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </center>
+</body>

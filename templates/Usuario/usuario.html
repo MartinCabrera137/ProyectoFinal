@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styleindex.css">
+    <title>Clientes</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{url_for('inicio')}}">Inicio</a>
+        <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+        <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+        <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+        <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+        <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+        <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
+        </div>
+    <div class="body">
+      <center>
+        <h1>Listado de Usuarios registrados</h1>
+        <div>
+            <a href="{{ url_for('appusuario.registro') }}">
+                <button type="button" class="btn">Agregar</button>
+            </a>
+        </br>
+        </div>
+
+        <div>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Registrado</th>
+                        <th>Administrador</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{usuario.idUsuario}}</td>
+                        <td>{{usuario.nombreUsuario}}</td>
+                        <td>{{usuario.edad}}</td>
+                        <td>{{usuario.correo}}</td>
+                        <td>{{usuario.contraseña}}</td>
+                        <td>{{usuario.registered_on}}</td>
+                        <td>{{usuario.admin}}</td>
+                        <td><a href="usuario/editar//{{usuario.idUsuario}}">Editar</a></td>
+                        <td><a href="usuario/eliminar//{{usuario.idUsuario}}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </center>
+    </div>
+    
+</body>

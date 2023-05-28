@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styleindex.css">
+    <title>Clientes</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{url_for('inicio')}}">Inicio</a>
+        <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+        <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+        <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+        <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+        <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+        <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
+    </div>
+    <div class="body">
+      <center>
+        <h1>Listado de ventas por dia</h1>
+        <div>
+            <a href="{{ url_for('appventa.registroven') }}">
+                <button type="button" class="btn">Agregar</button>
+            </a>
+        </br>
+        </div>
+        <div>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                        <td>{{venta.idVenta}}</td>
+                        <td>{{venta.fecha}}</td>
+                        <td>{{venta.total}}</td>
+                        <td><a href="ventas/editar//{{venta.idVenta}}">Editar</a></td>
+                        <td><a href="ventas/eliminar//{{venta.idVenta}}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </center>
+    </div>
+    
+</body>

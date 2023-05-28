@@ -1,0 +1,39 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="../static/css/stylelogin.css">
+{% endblock %}
+{% block title %}
+Perfume
+{% endblock %}
+
+{% block content %}
+
+<div class="topnav">
+  <a href="{{url_for('inicio')}}">Inicio</a>
+  <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+  <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+  <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+  <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+  <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+  <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
+  </div>
+    <center>
+      <h1 class="">{{mensaje}}</h1>
+      <div>
+        <a href="{{url_for('appproducto.getProducto')}}">
+          <button type="button" class="btn">Regresar</button>
+        </a></br>
+      </div>
+    </center>
+<div class="contenedor">
+    <div class="caja">
+      <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+        {{ wtf.quick_form(forma) }}
+      </div>
+  </div>
+</div>
+
+{% endblock %}
