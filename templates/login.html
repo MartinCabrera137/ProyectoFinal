@@ -3,7 +3,23 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="../static/css/stylelogin.css">
+<!-- slider stylesheet -->
+<link rel="stylesheet" type="text/css"
+href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+
+<!-- font wesome stylesheet -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- bootstrap core css -->
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+<!-- fonts style -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="../static/css/style.css" rel="stylesheet" />
+<!-- responsive style -->
+<link href="../static/css/responsive.css" rel="stylesheet" />
 {% endblock %}
 {% block title %}
 Usuarios
@@ -11,28 +27,85 @@ Usuarios
 
 {% block content %}
 
-<div class="topnav">
-  <center>
-    <a href="{{url_for('inicio')}}">Inicio</a>
-    <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
-    <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
-    <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
-    <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
-    <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
-    <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
-  </center>
-  </div>
-  <center>
-    <h1 class="">{{mensaje}}</h1>
-    <h1 class="">{{pop}}</h1>
-  </center>
-  <center><img src="https://onlinegiftools.com/images/examples-onlinegiftools/surface-3d-projection-black-and-white.gif" alt="login"></center>
-<div class="contenedor">
-    <div class="caja">
-      <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
-        {{ wtf.quick_form(forma) }}
-      </div>
-  </div>
+<div class="hero_area">
+  <!-- header section strats -->
+  <header class="header_section">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+        <a class="navbar-brand mr-5" href="index.html">
+          <img src="../static/img/logo.png" alt="">
+          <span>
+              Fragancia Exquisita
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('inicio')}}">Incio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('appventa.getVenta')}}">Ventas</a>
+              </li>
+            </ul>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="body_bg layout_padding">
+    <section class="contact_section">
+        <div class="container">
+            <div class="heading_container">
+              <h1 class="">{{mensaje}}</h1>
+              <h1 class="">{{pop}}</h1>
+            </div>
+        </div>
+        <div class="container contact_bg layout_padding2-top">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact_form ">
+                      
+                        {{ wtf.quick_form(forma) }}
+                        
+                    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-box">
+                        <img src="../static/img/login2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
+</div>
+<!-- footer section -->
+
+<script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 {% endblock %}

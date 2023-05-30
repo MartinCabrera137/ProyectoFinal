@@ -4,62 +4,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/styleindex.css">
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+
+    <!-- font wesome stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/css/responsive.css" rel="stylesheet" />
     <title>Clientes</title>
 </head>
 <body>
-    <div class="topnav">
-        <a href="{{url_for('inicio')}}">Inicio</a>
-        <a href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
-        <a href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
-        <a href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
-        <a href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
-        <a href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
-        <a href="{{url_for('appventa.getVenta')}}">Ventas</a>
-        </div>
-    <div class="body">
-      <center>
-        <h1>Listado de Usuarios registrados</h1>
-        <div>
-            <a href="{{ url_for('appusuario.registro') }}">
-                <button type="button" class="btn">Agregar</button>
-            </a>
-        </br>
-        </div>
-
-        <div>
-            <table class="styled-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Correo</th>
-                        <th>Contraseña</th>
-                        <th>Registrado</th>
-                        <th>Administrador</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for usuario in usuarios %}
-                    <tr>
-                        <td>{{usuario.idUsuario}}</td>
-                        <td>{{usuario.nombreUsuario}}</td>
-                        <td>{{usuario.edad}}</td>
-                        <td>{{usuario.correo}}</td>
-                        <td>{{usuario.contraseña}}</td>
-                        <td>{{usuario.registered_on}}</td>
-                        <td>{{usuario.admin}}</td>
-                        <td><a href="usuario/editar//{{usuario.idUsuario}}">Editar</a></td>
-                        <td><a href="usuario/eliminar//{{usuario.idUsuario}}">Eliminar</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-      </center>
-    </div>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+              <a class="navbar-brand mr-5" href="index.html">
+                <img src="../static/img/logo.png" alt="">
+                <span>
+                    Fragancia Exquisita
+                </span>
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                  <ul class="navbar-nav  ">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{{url_for('inicio')}}">Incio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url_for('appusuario.login')}}">Iniciar Sesion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url_for('appusuario.registro')}}">Registro de usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url_for('appusuario.getUsuarios')}}">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('appproducto.getProducto')}}">Perfumes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('appproveedor.getProveedor')}}">Proveedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('appventa.getVenta')}}">Ventas</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline">
+                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+        
+        <div class="body_bg layout_padding">
+          <section class="contact_section">
+              <div class="container">
+                  <div class="heading_container">
+                    <h2 class="">Listado de Usuarios registrados</h2>
+                    
+                  </div>
+              </div>
+              <div>
+                <center>
+                <div class="box">
+                    <div class="btn-box">
+                        <a href="{{ url_for('appusuario.registro') }}">
+                            Agregar
+                        </a>
+                    </div>
+                </div>
+                </center>
+            </div>
+              <div class="container contact_bg layout_padding2-top">
+                  
+                      <div class="col-lg-18">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Edad</th>
+                                        <th>Correo</th>
+                                        <th>Contraseña</th>
+                                        <th>Registrado</th>
+                                        <th>Administrador</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for usuario in usuarios %}
+                                    <tr>
+                                        <td>{{usuario.idUsuario}}</td>
+                                        <td>{{usuario.nombreUsuario}}</td>
+                                        <td>{{usuario.edad}}</td>
+                                        <td>{{usuario.correo}}</td>
+                                        <td>{{usuario.contraseña}}</td>
+                                        <td>{{usuario.registered_on}}</td>
+                                        <td>{{usuario.admin}}</td>
+                                        <td><a href="usuario/editar//{{usuario.idUsuario}}">Editar</a></td>
+                                        <td><a href="usuario/eliminar//{{usuario.idUsuario}}">Eliminar</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+                  
+              </div>
+          </section>
+      </div>
+      
+      </div>
+    
     
 </body>
